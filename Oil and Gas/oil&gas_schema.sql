@@ -1,7 +1,8 @@
 --Drop Tables if exists
-DROP TABLE IF EXISTS energy_gdp;
 DROP TABLE IF EXISTS oil_production;
 DROP TABLE IF EXISTS ng_production;
+DROP TABLE IF EXISTS energy_gdp;
+
 
 -- Create tables for raw data to be loaded into
 CREATE TABLE energy_gdp (
@@ -44,3 +45,14 @@ CREATE TABLE ng_production (
 	
 );
 
+-- Create tables for raw data to be loaded into
+CREATE TABLE oil_production (
+	states VARCHAR(20)  NOT NULL,
+	oil2010 FLOAT NOT NULL,
+	oil2011 FLOAT NOT NULL,
+	oil2012 FLOAT NOT NULL,
+	oil2013 FLOAT NOT NULL,
+	oil2014 FLOAT NOT NULL,
+	FOREIGN KEY (states) REFERENCES energy_gdp(state)
+	
+);
