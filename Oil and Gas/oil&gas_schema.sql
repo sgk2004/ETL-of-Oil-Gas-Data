@@ -1,58 +1,44 @@
 --Drop Tables if exists
+DROP TABLE IF EXISTS GDP;
 DROP TABLE IF EXISTS oil_production;
-DROP TABLE IF EXISTS ng_production;
-DROP TABLE IF EXISTS energy_gdp;
+DROP TABLE IF EXISTS natgas_production;
+DROP TABLE IF EXISTS energy_consumption;
 
 
--- Create tables for raw data to be loaded into
-CREATE TABLE energy_gdp (
-	
+-- Create tables for gdp data to be loaded into
+CREATE TABLE GDP (
 	state VARCHAR(20)  NOT NULL,
-	gdp2010 FLOAT NOT NULL,
-	gdp2011 FLOAT NOT NULL,
-	gdp2012 FLOAT NOT NULL,
-	gdp2013 FLOAT NOT NULL,
-	gdp2014 FLOAT NOT NULL,
-	fossfuelc2010 FLOAT NOT NULL,
-	fossfuelc2011 FLOAT NOT NULL,
-	fossfuelc2012 FLOAT NOT NULL,
-	fossfuelc2013 FLOAT NOT NULL,
-	fossfuelc2014 FLOAT NOT NULL,
-	natgasc2010   FLOAT NOT NULL,
-	natgasc2011   FLOAT NOT NULL,
-	natgasc2012   FLOAT NOT NULL,
-	natgasc2013   FLOAT NOT NULL,
-	natgasc2014   FLOAT NOT NULL,
-	lpgc2010      FLOAT NOT NULL,
-	lpgc2011      FLOAT NOT NULL,
-	lpgc2012      FLOAT NOT NULL,
-	lpgc2013      FLOAT NOT NULL,
-	lpgc2014      FLOAT NOT NULL,
-	PRIMARY KEY (state)
+	year INT NOT NULL,
+	gdp FLOAT NOT NULL,
+	PRIMARY KEY (state, year)
+);
+
+-- Create tables for crude oil production data to be loaded into
+CREATE TABLE crude_oil (
+	state VARCHAR(20)  NOT NULL,
+	year INT NOT NULL,
+	oil_production FLOAT NOT NULL,
+	PRIMARY KEY (state, year)
+);
+
+
+-- Create tables for natural gas production to be loaded into
+CREATE TABLE natural_gas (
+	state VARCHAR(20)  NOT NULL,
+	year INT NOT NULL,
+	naturalgas_production FLOAT NOT NULL,
+	PRIMARY KEY (state, year)
 );
 
 
 
--- Create tables for raw data to be loaded into
-CREATE TABLE ng_production (
-	states VARCHAR(20)  NOT NULL,
-	ng2010 FLOAT NOT NULL,
-	ng2011 FLOAT NOT NULL,
-	ng2012 FLOAT NOT NULL,
-	ng2013 FLOAT NOT NULL,
-	ng2014 FLOAT NOT NULL,
-	FOREIGN KEY (states) REFERENCES energy_gdp(state)
-	
-);
-
--- Create tables for raw data to be loaded into
-CREATE TABLE oil_production (
-	states VARCHAR(20)  NOT NULL,
-	oil2010 FLOAT NOT NULL,
-	oil2011 FLOAT NOT NULL,
-	oil2012 FLOAT NOT NULL,
-	oil2013 FLOAT NOT NULL,
-	oil2014 FLOAT NOT NULL,
-	FOREIGN KEY (states) REFERENCES energy_gdp(state)
-	
+-- Create tables for energy consumption to be loaded into
+CREATE TABLE energy_data (
+	state VARCHAR(20)NOT NULL,
+	year INT NOT NULL,
+	fossilfuel_consumption FLOAT NOT NULL,
+	natgas_consumption FLOAT NOT NULL,
+	lpg_consumption FLOAT NOT NULL,
+	PRIMARY KEY (state, year)
+		
 );

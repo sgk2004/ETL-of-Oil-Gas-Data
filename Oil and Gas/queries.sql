@@ -1,26 +1,22 @@
 
-SELECT * FROM energy_gdp;
-SELECT * FROM oil_production;
-SELECT * FROM ng_production;
+SELECT * FROM energy_data;
+SELECT * FROM crude_oil;
+SELECT * FROM natural_gas;
+SELECT * FROM gdp;
 
---JOIN 3 tables
-SELECT *
-FROM energy_gdp as e
-JOIN oil_production as o 
-ON e.state= o.states
-JOIN ng_production as ng
-ON o.states = ng.states;
+--JOIN 4 tables
+SELECT g.state,g.year,g.gdp,o.oil_production,
+	ng.naturalgas_production,ec.fossilfuel_consumption,
+	ec.natgas_consumption,ec.lpg_consumption
+FROM gdp as g
+JOIN crude_oil as o 
+ON g.state= o.state AND g.year= o.year
+JOIN natural_gas as ng
+ON o.state = ng.state AND ng.year= o.year
+JOIN energy_data as ec
+ON ec.state = ng.state AND ng.year= ec.year;
 
---JOIN 2 tables
-SELECT * 
-FROM oil_production as o
-JOIN ng_production as ng
-ON o.states = ng.states;
 
-SELECT * 
-FROM energy_gdp as e
-JOIN ng_production as ng
-ON e.state = ng.states;
 
 
 
