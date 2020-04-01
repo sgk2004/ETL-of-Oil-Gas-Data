@@ -1,3 +1,7 @@
+# ETL PROJECT REPORT
+
+![](Oil and Gas/Images/Data_transformation.JPG)
+
 # Oil-Gas
 
 ETL steps in Jupyter notebook- data_etl.ipynb
