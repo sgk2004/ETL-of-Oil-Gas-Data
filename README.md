@@ -1,6 +1,6 @@
 # ETL PROJECT REPORT
 
-![](Oil%20and%20Gas/Images/Data_transformation.jpg)
+![](images/Data_transformation.JPG)
 
 # Oil-Gas
 
