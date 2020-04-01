@@ -1,8 +1,14 @@
 # ETL PROJECT REPORT
-
+![](images/intro.JPG)
 ![](images/Data_transformation.JPG)
+![](images/Data_transformation1.JPG)
+![](images/Data_transformation2.JPG)
+![](images/Data_transformation3.JPG)
+![](images/data_load.JPG)
 
-# Oil-Gas
+
+
+Jupiter notebook and sql schema and queries are in the folder 'Oil and Gas'
 
 ETL steps in Jupyter notebook- data_etl.ipynb
 
